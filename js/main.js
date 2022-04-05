@@ -1,26 +1,30 @@
 /* global data */
 /* exported data */
-var $url = document.querySelector('.imageUrl');
-$url.addEventListener('input', handleInput);
 
-function handleInput(event) {
-  document.querySelector('img').src = $url;
+var $input = document.querySelector('.imageUrl');
+var $img = document.querySelector('img');
+$input.addEventListener('input', updateUrl);
 
+function updateUrl(event) {
+  $img.setAttribute('src', $input.value);
 }
 
-// var $submit = document.querySelector('form');
+var $form = document.querySelector('form');
 
-// $submit.addEventListener('submit', logSubmit);
+$form.addEventListener('submit', logSubmit);
 
-// function logSubmit(event) {
-//   var messageData = null;
-//   event.preventDefault();
-//   messageData = {
-//     title: document.forms[0].elements.title.value,
-//     imageUrl: document.forms[0].elements.imageUrl.value,
-//     notes: document.forms[0].elements.notes.value
-//   };
-//   console.log('messageData:', messageData);
-//   document.querySelector('form').reset();
+function logSubmit(event) {
+  var entry = null;
+  event.preventDefault();
+  entry = {
+    title: document.forms[0].elements.title.value,
+    imageUrl: document.forms[0].elements.imageUrl.value,
+    notes: document.forms[0].elements.notes.value,
+    entryId: data.nextEntryId
+  };
 
-// }
+  data.nextEntryId++;
+  data.entries.unshift(entry);
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  document.querySelector('form').reset();
+}
