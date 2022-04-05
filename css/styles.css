@@ -12,10 +12,37 @@ header {
   color: white;
   font-family: "Proza Libre", sans-serif;
   padding: 5px 0;
+  display: flex;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .div {
   max-width: 600px;
+}
+
+a {
+  color: white;
+  font-family: "Proza Libre", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  font-family: "Proza Libre", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  font-family: "Proza Libre", sans-serif;
+  font-size: 20px;
+  text-decoration: underline;
 }
 
 form {
