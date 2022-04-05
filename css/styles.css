@@ -106,7 +106,7 @@ textarea:focus {
   justify-content: flex-end;
 }
 
-p {
+.open-sans {
   font-family: "Open Sans", sans-serif;
   font-size: 22px;
   line-height: 1.5;
