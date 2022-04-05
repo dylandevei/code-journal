@@ -26,5 +26,5 @@ function logSubmit(event) {
   data.nextEntryId++;
   data.entries.unshift(entry);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
-  document.querySelector('form').reset();
+  $form.reset();
 }
