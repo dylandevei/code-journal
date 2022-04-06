@@ -73,8 +73,7 @@ function domContentLoaded(event) {
 function emptyEntries() {
   if (data.entries.length === 0) {
     $p.setAttribute('class', 'open-sans center');
-  }
-  if (data.entries.length > 0) {
+  } else {
     $p.setAttribute('class', 'hidden');
   }
 }
