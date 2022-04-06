@@ -7,9 +7,7 @@ $input.addEventListener('input', updateUrl);
 function updateUrl(event) {
   $img.setAttribute('src', $input.value);
 }
-
 var $form = document.querySelector('form');
-
 $form.addEventListener('submit', logSubmit);
 
 function logSubmit(event) {
