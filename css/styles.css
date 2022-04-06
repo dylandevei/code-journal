@@ -12,10 +12,36 @@ header {
   color: white;
   font-family: "Proza Libre", sans-serif;
   padding: 5px 0;
+  display: flex;
+}
+
+.flex {
+  display: flex;
 }
 
 .div {
   max-width: 600px;
+}
+
+a {
+  color: white;
+  font-family: "Proza Libre", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  font-family: "Proza Libre", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  font-family: "Proza Libre", sans-serif;
+  font-size: 20px;
+  text-decoration: underline;
 }
 
 form {
@@ -38,6 +64,10 @@ h1 {
   font-size: 40px;
 }
 
+.font {
+  font-size: 35px;
+}
+
 .padding-top {
   padding-top: 20px;
 }
@@ -53,9 +83,14 @@ h1 {
 h2 {
   font-size: 22px;
   font-weight: 900;
+  margin-bottom: 10px;
 }
 
-button {
+.proza {
+  font-family: "Proza Libre", sans-serif;
+}
+
+.save-button {
   margin-top: 10px;
   padding: 0.5rem 1rem;
   font-size: 1.1rem;
@@ -64,6 +99,19 @@ button {
   text-transform: uppercase;
   background-color: #552b81;
   border-radius: 5px;
+}
+
+.new-button {
+  padding: 0.5rem 1rem;
+  font-size: 20px;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  background-color: #552b81;
+  border-radius: 5px;
+  position: absolute;
+  right: 20px;
+  top: 0;
 }
 
 input {
@@ -95,4 +143,20 @@ textarea:focus {
 .form-actions {
   display: flex;
   justify-content: flex-end;
+}
+
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-container {
+  display: flex;
 }
