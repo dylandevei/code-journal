@@ -1,6 +1,5 @@
 /* global data */
 /* exported data */
-
 var $input = document.querySelector('.imageUrl');
 var $img = document.querySelector('img');
 $input.addEventListener('input', updateUrl);
@@ -25,9 +24,11 @@ function logSubmit(event) {
 
   data.nextEntryId++;
   data.entries.unshift(entry);
-  $form.append(renderEntry(entry));
+  $ul.prepend(renderEntry(entry));
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
+  emptyEntries();
+  switchViews('entries');
 }
 
 function renderEntry(entry) {
@@ -61,9 +62,45 @@ function renderEntry(entry) {
   return $li;
 }
 
+window.addEventListener('DOMContentLoaded', domContentLoaded);
+
+function domContentLoaded(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    var newEntry = renderEntry(data.entries[i]);
+    $ul.appendChild(newEntry);
+  }
+  emptyEntries();
+}
+
+function emptyEntries() {
+  if (data.entries.length === 0) {
+    $p.setAttribute('class', 'open-sans center');
+  }
+  if (data.entries.length > 0) {
+    $p.setAttribute('class', 'hidden');
+  }
+}
+
+var $entryButton = document.querySelector('.entry-button');
+var $newButton = document.querySelector('.new-button');
+var $view = document.querySelectorAll('.view');
+var $p = document.querySelector('p');
 var $ul = document.querySelector('.ul');
 
-for (var i = 0; i < data.entries.length; i++) {
-  var object = renderEntry(data.entries[i]);
-  $ul.appendChild(object);
+$entryButton.addEventListener('click', handleClick);
+$newButton.addEventListener('click', handleClick);
+
+function handleClick(event) {
+  var viewName = event.target.getAttribute('data-view');
+  switchViews(viewName);
+}
+
+function switchViews(viewName) {
+  for (var i = 0; i < $view.length; i++) {
+    if ($view[i].getAttribute('data-view') === viewName) {
+      $view[i].className = 'view';
+    } else {
+      $view[i].className = 'view hidden';
+    }
+  }
 }

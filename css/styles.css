@@ -17,7 +17,6 @@ header {
 
 .flex {
   display: flex;
-  justify-content: flex-end;
 }
 
 .div {
@@ -91,7 +90,7 @@ h2 {
   font-family: "Proza Libre", sans-serif;
 }
 
-button {
+.save-button {
   margin-top: 10px;
   padding: 0.5rem 1rem;
   font-size: 1.1rem;
@@ -100,6 +99,19 @@ button {
   text-transform: uppercase;
   background-color: #552b81;
   border-radius: 5px;
+}
+
+.new-button {
+  padding: 0.5rem 1rem;
+  font-size: 20px;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  background-color: #552b81;
+  border-radius: 5px;
+  position: absolute;
+  right: 20px;
+  top: 0;
 }
 
 input {
@@ -138,4 +150,13 @@ textarea:focus {
   font-size: 22px;
   line-height: 1.5;
   font-weight: 500;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-container {
+  display: flex;
 }
