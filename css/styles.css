@@ -160,3 +160,12 @@ textarea:focus {
 .nav-container {
   display: flex;
 }
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fas {
+  color: purple;
+}

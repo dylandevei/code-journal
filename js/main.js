@@ -40,13 +40,15 @@ function renderEntry(entry) {
   var $entryImg = document.createElement('img');
   var $h2 = document.createElement('h2');
   var $p = document.createElement('p');
+  var $pencil = document.createElement('i');
 
   $li.setAttribute('class', 'row');
   $columnHalf.setAttribute('class', 'column-half');
   $columnHalf2.setAttribute('class', 'column-half');
   $entryImg.setAttribute('src', url);
-  $h2.setAttribute('class', 'proza font');
+  $h2.setAttribute('class', 'proza font space-between');
   $p.setAttribute('class', 'open-sans');
+  $pencil.setAttribute('class', 'fas fa-pencil-alt');
 
   $h2.textContent = title;
   $p.textContent = note;
@@ -55,6 +57,7 @@ function renderEntry(entry) {
   $li.append($columnHalf2);
   $columnHalf.appendChild($entryImg);
   $columnHalf2.appendChild($h2);
+  $h2.appendChild($pencil);
   $columnHalf2.appendChild($p);
 
   return $li;
