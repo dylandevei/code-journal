@@ -169,3 +169,7 @@ textarea:focus {
 .fas {
   color: purple;
 }
+
+.fas:hover {
+  color: green;
+}

@@ -90,10 +90,17 @@ var $ul = document.querySelector('.ul');
 
 $entryButton.addEventListener('click', handleClick);
 $newButton.addEventListener('click', handleClick);
+$ul.addEventListener('click', ulClick);
 
 function handleClick(event) {
   var viewName = event.target.getAttribute('data-view');
   switchViews(viewName);
+}
+
+function ulClick(event) {
+  if (event.target.className === 'fas fa-pencil-alt') {
+    switchViews('entry-form');
+  }
 }
 
 function switchViews(viewName) {
