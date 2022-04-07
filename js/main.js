@@ -49,6 +49,7 @@ function renderEntry(entry) {
   $h2.setAttribute('class', 'proza font space-between');
   $p.setAttribute('class', 'open-sans');
   $pencil.setAttribute('class', 'fas fa-pencil-alt');
+  $li.setAttribute('data-entry-id', entry.entryId);
 
   $h2.textContent = title;
   $p.textContent = note;
