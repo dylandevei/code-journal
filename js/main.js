@@ -90,16 +90,21 @@ var $ul = document.querySelector('.ul');
 
 $entryButton.addEventListener('click', handleClick);
 $newButton.addEventListener('click', handleClick);
-$ul.addEventListener('click', ulClick);
+$ul.addEventListener('click', editClick);
 
 function handleClick(event) {
   var viewName = event.target.getAttribute('data-view');
   switchViews(viewName);
 }
 
-function ulClick(event) {
-  if (event.target.className === 'fas fa-pencil-alt') {
+function editClick(event) {
+  if (event.target && event.target.tagName === 'I') {
+    var closestUl = event.target.closest('.row');
+    var dataId = closestUl.getAttribute('data-entry-id');
     switchViews('entry-form');
+    dataId = JSON.parse(dataId);
+    data.editing = dataId;
+
   }
 }
 
