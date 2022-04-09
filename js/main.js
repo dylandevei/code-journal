@@ -3,7 +3,7 @@
 
 var $img = document.querySelector('img');
 var $entryButton = document.querySelector('.entry-button');
-var $newButton = document.querySelector('.new-button');
+var $newButton = document.querySelector('#new');
 var $view = document.querySelectorAll('.view');
 var $p = document.querySelector('p');
 var $ul = document.querySelector('ul');
@@ -112,7 +112,8 @@ function switchViews(viewName) {
 }
 
 function editClick(event) {
-  if (event.target && event.target.tagName === 'I') {
+  if (event.target.tagName === 'I') {
+    switchViews('entry-form');
     var closestUl = event.target.closest('li');
     var dataId = closestUl.getAttribute('data-entry-id');
     data.editing = JSON.parse(dataId);
@@ -125,7 +126,6 @@ function editClick(event) {
       }
     }
   }
-  switchViews('entry-form');
 }
 
 function emptyEntries() {
