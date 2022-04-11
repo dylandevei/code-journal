@@ -30,7 +30,7 @@ function formSubmit(event) {
     data.entries.unshift(entry);
     $ul.prepend(renderEntry(entry));
     switchViews('entries');
-  } else if (data.editing !== null) {
+  } else {
     var editEntry = {
       title: $form.elements.title.value,
       imageUrl: $form.elements.imageUrl.value,
@@ -116,7 +116,7 @@ function editClick(event) {
     switchViews('entry-form');
     var closestUl = event.target.closest('li');
     var dataId = closestUl.getAttribute('data-entry-id');
-    data.editing = JSON.parse(dataId);
+    data.editing = parseInt(dataId);
     for (var editIndex = 0; editIndex < data.entries.length; editIndex++) {
       if (data.editing === data.entries[editIndex].entryId) {
         $form.elements.title.value = data.entries[editIndex].title;
