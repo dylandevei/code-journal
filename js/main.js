@@ -8,6 +8,11 @@ var $view = document.querySelectorAll('.view');
 var $p = document.querySelector('p');
 var $ul = document.querySelector('ul');
 var $input = document.querySelector('.imageUrl');
+var $delete = document.querySelector('.delete-button');
+var $popUp = document.querySelector('.popup');
+var $cancelButton = document.querySelector('.cancel-button');
+var $confirmButton = document.querySelector('.confirm-button');
+var $overlay = document.querySelector('.overlay');
 
 $input.addEventListener('input', updateUrl);
 
@@ -95,6 +100,10 @@ function renderEntry(entry) {
 $entryButton.addEventListener('click', handleClick);
 $newButton.addEventListener('click', handleClick);
 $ul.addEventListener('click', editClick);
+$cancelButton.addEventListener('click', closePopUp);
+$confirmButton.addEventListener('click', deleteEntry);
+window.addEventListener('DOMContentLoaded', domContentLoaded);
+$delete.addEventListener('click', overlay);
 
 function handleClick(event) {
   var viewName = event.target.getAttribute('data-view');
@@ -123,6 +132,7 @@ function editClick(event) {
         $form.elements.imageUrl.value = data.entries[editIndex].imageUrl;
         $form.elements.notes.value = data.entries[editIndex].notes;
         $img.setAttribute('src', data.entries[editIndex].imageUrl);
+        $delete.setAttribute('class', 'delete-button-show');
       }
     }
   }
@@ -143,4 +153,34 @@ function domContentLoaded(event) {
   }
   emptyEntries();
 }
-window.addEventListener('DOMContentLoaded', domContentLoaded);
+
+function overlay(event) {
+  $overlay.className = 'overlay-on';
+  $popUp.className = 'popup-display';
+}
+
+function closePopUp(event) {
+  $overlay.className = 'overlay';
+  $popUp.className = 'popup';
+}
+
+function deleteEntry(event) {
+  for (var entryIndex = 0; entryIndex < data.entries.length; entryIndex++) {
+    if (data.editing === data.entries[entryIndex].entryId) {
+      data.entries.splice(entryIndex, 1);
+    }
+  }
+  var $li = document.querySelectorAll('li');
+  for (var editIndex = 0; editIndex < $li.length; editIndex++) {
+    var parseAttribute = parseInt($li[editIndex].getAttribute('data-entry-id'));
+    if (data.editing === parseAttribute) {
+      $li[editIndex].remove();
+    }
+  }
+  switchViews('entries');
+  emptyEntries();
+  $overlay.className = 'overlay';
+  $popUp.className = 'popup';
+  $form.reset();
+  data.editing = null;
+}

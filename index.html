@@ -28,6 +28,19 @@
     </div>
   </header>
   <main>
+    <div class="row">
+      <div class="column-full">
+        <div class="popup">
+          <div class="popup-header">
+            <h2>Are you sure you want to delete this entry?</h2>
+          </div>
+          <div class="popup-body space-evenly">
+            <button class="cancel-button">cancel</button>
+            <button class="confirm-button">confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <div class="view" data-view="entry-form">
         <form class="entry-form" action="">
@@ -53,7 +66,9 @@
               <textarea required name="notes" id="notes" cols="5" rows="10"></textarea>
               <div class="form-actions">
                 <button class="save-button">Save</button>
-                <i class="fal fa-pencil"></i>
+              </div>
+              <div class="delete-div-show">
+                <h2><a href="#" class="delete-button" id="delete">Delete Entry</a></h2>
               </div>
             </div>
           </div>
@@ -67,6 +82,7 @@
         <ul class="ul"></ul>
         <p class="open-sans center">No entries have been recorded.</p>
       </div>
+      <div class="overlay"></div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
